@@ -1,4 +1,5 @@
 """统一注册路由"""
+
 from fastapi import APIRouter
 
 from app import user

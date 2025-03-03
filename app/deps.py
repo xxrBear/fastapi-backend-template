@@ -1,5 +1,5 @@
-""" 依赖设置
-"""
+"""依赖设置"""
+
 from collections.abc import Generator
 from functools import lru_cache
 from typing import Annotated
@@ -11,7 +11,7 @@ from core.settings import Settings
 from init_db import engine
 
 
-def get_db() -> Generator[Session, None, None]:
+def get_db() -> Generator[Session]:
     with Session(engine) as session:
         yield session
 

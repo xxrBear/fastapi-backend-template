@@ -21,4 +21,4 @@ def adapter_records_info(objs, pageSize):
     total = len(objs)
     pages = math.ceil(total / pageSize)
     size = pageSize
-    return {'pages': pages, 'total': total, 'size': size}
+    return {"pages": pages, "total": total, "size": size}
