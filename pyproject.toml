@@ -27,8 +27,10 @@ select = [
     "B", # flake8-bugbear
     "C4", # flake8-comprehensions
     "UP", # pyupgrade
-#    "ARG001", # unused arguments in functions
 ]
+
+[format]
+preview = true  # 启用 Ruff 格式化
 
 [tool.ruff.lint.pyupgrade]
 # Preserve types, even if a file imports `from __future__ import annotations`.
