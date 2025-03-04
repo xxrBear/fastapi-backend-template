@@ -85,6 +85,7 @@ dependencies = [
     { name = "fastapi" },
     { name = "itsdangerous" },
     { name = "pre-commit" },
+    { name = "psycopg2" },
     { name = "sqlmodel" },
     { name = "uvicorn" },
 ]
@@ -100,6 +101,7 @@ requires-dist = [
     { name = "fastapi", specifier = ">=0.115.11" },
     { name = "itsdangerous", specifier = ">=2.2.0" },
     { name = "pre-commit", specifier = ">=4.1.0" },
+    { name = "psycopg2", specifier = ">=2.9.10" },
     { name = "sqlmodel", specifier = ">=0.0.23" },
     { name = "uvicorn", specifier = ">=0.34.0" },
 ]
@@ -211,6 +213,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/2a/13/b62d075317d8686071eb843f0bb1f195eb332f48869d3c31a4c6f1e063ac/pre_commit-4.1.0.tar.gz", hash = "sha256:ae3f018575a588e30dfddfab9a05448bfbd6b73d78709617b5a2b853549716d4", size = 193330 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/43/b3/df14c580d82b9627d173ceea305ba898dca135feb360b6d84019d0803d3b/pre_commit-4.1.0-py2.py3-none-any.whl", hash = "sha256:d29e7cb346295bcc1cc75fc3e92e343495e3ea0196c9ec6ba53f49f10ab6ae7b", size = 220560 },
+]
+
+[[package]]
+name = "psycopg2"
+version = "2.9.10"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/62/51/2007ea29e605957a17ac6357115d0c1a1b60c8c984951c19419b3474cdfd/psycopg2-2.9.10.tar.gz", hash = "sha256:12ec0b40b0273f95296233e8750441339298e6a572f7039da5b260e3c8b60e11", size = 385672 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ae/49/a6cfc94a9c483b1fa401fbcb23aca7892f60c7269c5ffa2ac408364f80dc/psycopg2-2.9.10-cp313-cp313-win_amd64.whl", hash = "sha256:91fd603a2155da8d0cfcdbf8ab24a2d54bca72795b90d2a3ed2b6da8d979dee2", size = 2569060 },
 ]
 
 [[package]]

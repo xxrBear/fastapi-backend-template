@@ -40,19 +40,17 @@ def validate_register_info(session: Session, user_create: UserCreate):
     :param user_create:
     :return:
     """
-    user_info = user_create.model_dump()
-    user_account = user_info.get("userAccount")
-    user_password = user_info.get("userPassword")
-    check_password = user_info.get("checkPassword")
 
-    validate_request_exception(user_password != check_password, "两次输入的密码不一致")
+    validate_request_exception(
+        user_create.user_password != user_create.check_password, "两次输入的密码不一致"
+    )
 
-    statement = select(User).where(User.user_account == user_account)
+    statement = select(User).where(User.user_account == user_create.user_account)
     user_obj = session.exec(statement).first()
     validate_request_exception(user_obj, "用户已存在")
 
-    encrypt_passwd = encrypt_user_password(user_password)
-    user_dict = user_create.to_dict()
+    encrypt_passwd = encrypt_user_password(user_create.user_password)
+    user_dict = user_create.model_dump()
     user_dict.update(user_password=encrypt_passwd)
 
     user_obj = User(**user_dict)

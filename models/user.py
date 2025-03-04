@@ -36,13 +36,13 @@ class UserBase(SQLModel):
 class User(UserBase, table=True):
     """用户表"""
 
-    user_password: str = Field(..., max_length=32, description="密码")
+    user_password: str = Field(..., max_length=64, description="密码")
 
 
 class UserCreate(SQLModel):
     user_account: str = Field(min_length=4, max_length=32, description="账号")
-    user_password: str = Field(min_length=8, max_length=32, description="密码")
-    check_password: str = Field(min_length=8, max_length=32, description="检验密码")
+    user_password: str = Field(min_length=8, max_length=64, description="密码")
+    check_password: str = Field(min_length=8, max_length=64, description="检验密码")
 
 
 class UserLogin(SQLModel):

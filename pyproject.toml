@@ -7,7 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "fastapi>=0.115.11",
     "itsdangerous>=2.2.0",
-    "pre-commit>=4.1.0",
+    "psycopg2>=2.9.10",
     "sqlmodel>=0.0.23",
     "uvicorn>=0.34.0",
 ]
@@ -48,6 +48,9 @@ exclude = [
     "requirements.txt", # 依赖文件
     "*.log", # 所有日志文件
     "**/*.ipynb", # 所有 Jupyter Notebook 文件
+
+    # custom
+    "init_db.py"
 ]
 
 [tool.ruff.lint]

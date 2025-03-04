@@ -20,8 +20,8 @@ def register(session: SessionDep, user_create: UserCreate):
     :param user_create:
     :return:
     """
-    user_obj = user.validate_register_info(session, user_create)
-    return json_data(data=user_obj.to_dict())
+    user.validate_register_info(session, user_create)
+    return json_data()
 
 
 @router.post("/login")
