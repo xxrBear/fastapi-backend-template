@@ -1,15 +1,5 @@
 import hashlib
 import math
-import time
-
-
-def generate_id():
-    """
-    生成增长的 id
-    :return:
-    """
-    id_ = int(time.time())
-    return id_
 
 
 def encrypt_user_password(password: str) -> str:
