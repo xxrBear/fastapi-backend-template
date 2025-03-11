@@ -1,7 +1,16 @@
 from sqlmodel import Session, select
 
-from core.security import get_password_hash
+from core.security import get_password_hash, verify_password
 from models import User, UserRegister
+
+
+def authenticate(*, session: Session, user_account: str, password: str) -> User | None:
+    db_user = get_user_by_account(session=session, user_account=user_account)
+    if not db_user:
+        return None
+    if not verify_password(password, db_user.hashed_password):
+        return None
+    return db_user
 
 
 def get_user_by_account(*, session: Session, user_account: str):

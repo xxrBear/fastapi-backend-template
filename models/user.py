@@ -42,3 +42,18 @@ class UserRegister(SQLModel):
     )
     password: str = Field(..., max_length=128, description="密码")
     user_account: str = Field(..., max_length=32, description="账号")
+
+
+class UserForm(SQLModel):
+    user_account: str
+    password: str
+
+
+class Token(SQLModel):
+    access_token: str
+    token_type: str = "bearer"
+
+
+# Contents of JWT token
+class TokenPayload(SQLModel):
+    sub: str | None = None
