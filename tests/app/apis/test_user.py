@@ -2,7 +2,7 @@ from fastapi.testclient import TestClient
 from sqlmodel import Session
 
 
-def test_create_user_new_account(client: TestClient, test_db: Session) -> None:
+def test_create_user_new_account(client: TestClient, db: Session) -> None:
     user_account = "xxx"
     password = "xxx"
     data = {"user_account": user_account, "password": password}
