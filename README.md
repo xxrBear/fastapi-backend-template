@@ -5,13 +5,18 @@
 ![Static Badge](https://img.shields.io/badge/SQLModel-8A2BE2)
 ![Static Badge](https://img.shields.io/badge/Pydantic2-red)
 
-
-
 ## 简介
 
-为快速开发而存在的模板
+基于 FastAPI + PostgreSQL + SQLModel 等，搭建的服务端应用，用于快速开发。
 
-## 快速部署
+## 项目依赖
+
+- uv
+- pydantic
+- sqlmodel
+
+## 快速启动
+
 ```shell
 uv sync
 ```
