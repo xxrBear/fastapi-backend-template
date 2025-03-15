@@ -32,8 +32,11 @@ class UserBase(SQLModel):
 class User(UserBase, table=True):
     """用户表"""
 
-    password: str = Field(..., max_length=64, description="密码")
     hashed_password: str = Field(min_length=32, description='加密后的密码')
+
+
+class UserPublic(UserBase):
+    id: uuid.UUID
 
 
 class UserRegister(SQLModel):

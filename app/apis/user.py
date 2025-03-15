@@ -8,12 +8,12 @@ from app.deps import CurrentUser, SessionDep
 from core.security import create_access_token
 from crud import user as user_crud
 from models import UserRegister
-from models.user import Token, User
+from models.user import Token, User, UserPublic
 
 router = APIRouter(tags=["user"])
 
 
-@router.post("/signup")
+@router.post("/signup", response_model=UserPublic)
 def register_user(session: SessionDep, user_in: UserRegister) -> Any:
     """
     注册用户

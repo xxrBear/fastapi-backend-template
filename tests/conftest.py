@@ -21,11 +21,9 @@ def init_db_and_superuser():
 @pytest.fixture(scope="session", autouse=True)
 def db() -> Generator[Session, None, None]:
     with Session(engine) as session:
-        init_db_and_superuser()
-
         yield session
         statement = delete(User)
-        session.execute(statement)
+        session.exec(statement)
         session.commit()
 
 

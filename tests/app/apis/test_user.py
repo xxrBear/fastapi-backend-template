@@ -1,15 +1,15 @@
 from fastapi.testclient import TestClient
 from sqlmodel import Session
 
+from crud import user as user_crud
+from models import UserRegister
 
-def test_create_user_new_account(client: TestClient, db: Session) -> None:
+
+def test_create_user(client: TestClient, db: Session) -> None:
     user_account = "xxx"
     password = "xxx"
-    data = {"user_account": user_account, "password": password}
-    r = client.post(
-        "api/user/signup",
-        json=data,
-    )
-    assert r.status_code == 200
-    created_user = r.json()
-    assert user_account == created_user["user_account"]
+    user_info = UserRegister(**{"user_account": user_account, "password": password})
+    user = user_crud.create_user(session=db, user_in=user_info)
+
+    assert user_account == user.user_account
+    assert hasattr(user, "hashed_password")

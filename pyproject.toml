@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "alembic>=1.15.1",
     "bcrypt>=4.3.0",
     "fastapi>=0.115.11",
     "httpx>=0.28.1",
@@ -23,6 +24,7 @@ dependencies = [
 dev = [
     "pre-commit>=4.1.0",
     "ruff>=0.9.9",
+    "watchdog>=6.0.0",
 ]
 
 [tool.ruff]
@@ -57,7 +59,8 @@ exclude = [
     "**/*.ipynb", # 所有 Jupyter Notebook 文件
 
     # custom
-    "init_db.py"
+    "init_db.py",
+    "alembic/"
 ]
 
 [tool.ruff.lint]

@@ -5,6 +5,7 @@ from models import User, UserRegister
 
 
 def authenticate(*, session: Session, user_account: str, password: str) -> User | None:
+    """验证用户账号是否存在, 用户密码是否正确"""
     db_user = get_user_by_account(session=session, user_account=user_account)
     if not db_user:
         return None
