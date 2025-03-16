@@ -47,11 +47,6 @@ class UserRegister(SQLModel):
     user_account: str = Field(..., max_length=32, description="账号")
 
 
-class UserForm(SQLModel):
-    user_account: str
-    password: str
-
-
 class Token(SQLModel):
     access_token: str
     token_type: str = "bearer"
