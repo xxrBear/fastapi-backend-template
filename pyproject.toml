@@ -14,7 +14,6 @@ dependencies = [
     "psycopg2>=2.9.10",
     "pydantic-settings>=2.8.1",
     "pyjwt>=2.10.1",
-    "pytest>=8.3.5",
     "python-multipart>=0.0.20",
     "sqlmodel>=0.0.23",
     "uvicorn>=0.34.0",
@@ -23,6 +22,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pre-commit>=4.1.0",
+    "pytest>=8.3.5",
     "ruff>=0.9.9",
     "watchdog>=6.0.0",
 ]
@@ -30,53 +30,40 @@ dev = [
 [tool.ruff]
 # 排除的文件或目录
 exclude = [
-    "build/", # 构建输出目录
-    "dist/", # 分发文件目录
     "*.egg-info/", # Python 包的元数据目录
     "__pycache__/", # Python 缓存文件目录
     ".pytest_cache/", # pytest 缓存目录
     ".mypy_cache/", # mypy 缓存目录
     ".venv/", # 虚拟环境目录
-    "venv/", # 虚拟环境目录
-    "env/", # 虚拟环境目录
-    "tests/data/", # 测试数据目录
     "**/*.json", # 所有 JSON 文件
-    "**/*.csv", # 所有 CSV 文件
-    "**/*.xml", # 所有 XML 文件
-    "migrations/", # Django 迁移文件目录
-    "**/generated/", # 自动生成的代码目录
-    "vendor/", # 第三方库目录
-    "lib/", # 第三方库目录
     ".*", # 所有隐藏文件和目录
     ".git/", # Git 目录
     ".github/", # GitHub 配置目录
     ".idea/", # PyCharm 配置目录
     ".vscode/", # VS Code 配置目录
     "**/__init__.py", # 所有 __init__.py 文件
-    "setup.py", # 项目的 setup.py 文件
     "requirements.txt", # 依赖文件
     "*.log", # 所有日志文件
-    "**/*.ipynb", # 所有 Jupyter Notebook 文件
 
-    # custom
+    # 自定义文件
     "init_db.py",
     "alembic/"
 ]
 
 [tool.ruff.lint]
 select = [
-    "E", # pycodestyle errors
-    "W", # pycodestyle warnings
-    "F", # pyflakes
-    "I", # isort
+    "E", # pycodestyle 代码错误 如缩进、空格问题
+    "W", # pycodestyle 代码警告
+    "F", # pyflakes 代码错误 如未使用的变量、未定义的名称等
+    "I", # isort 用于检查 import 语句的排序
     #    "B", # flake8-bugbear
-    #    "C4", # flake8-comprehensions
-    #    "UP", # pyupgrade
+    #    "C4", flake8-comprehensions（优化 list/set/dict comprehensions）
+    #    "UP", pyupgrade（自动升级 Python 语法）
 ]
 
 [tool.ruff.format]
-quote-style = "preserve"
+quote-style = "preserve" # 让引号保持原样
 
 [tool.ruff.lint.pyupgrade]
-# Preserve types, even if a file imports `from __future__ import annotations`.
+# 即使文件中使用了 from __future__ import annotations 也要保留原始的运行时类型 runtime types
 keep-runtime-typing = true
