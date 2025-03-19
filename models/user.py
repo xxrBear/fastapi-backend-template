@@ -32,7 +32,7 @@ class UserBase(SQLModel):
 class User(UserBase, table=True):
     """用户表"""
 
-    hashed_password: str = Field(min_length=32, description='加密后的密码')
+    hashed_password: str = Field(min_length=32, description="加密后的密码")
 
 
 class UserPublic(UserBase):

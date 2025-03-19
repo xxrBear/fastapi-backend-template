@@ -22,6 +22,7 @@ def get_user_by_account(*, session: Session, user_account: str):
 
 
 def create_user(*, session: Session, user_in: UserRegister) -> User:
+    """创建用户"""
     db_obj = User.model_validate(
         user_in, update={"hashed_password": get_password_hash(user_in.password)}
     )
