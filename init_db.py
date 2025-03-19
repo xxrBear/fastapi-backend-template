@@ -1,6 +1,6 @@
 from sqlmodel import SQLModel, create_engine
 
-from models import User
+from apps.models import User
 
 # 使用 SQLAlchemy 的 SQLite URL 格式
 DATABASE_URL = "postgresql://fast-admin:123456@localhost:5432/backend_tem"

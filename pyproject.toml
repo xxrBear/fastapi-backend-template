@@ -47,7 +47,7 @@ exclude = [
 
     # 自定义文件
     "init_db.py",
-    "alembic/"
+    "apps/alembic/"
 ]
 
 [tool.ruff.lint]

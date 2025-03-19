@@ -1,8 +1,7 @@
 from logging.config import fileConfig
 
-from sqlalchemy import engine_from_config, pool
-
 from alembic import context
+from sqlalchemy import engine_from_config, pool
 
 # 这是 Alembic 配置（Config）对象，它提供对当前使用的 .ini 配置文件中参数的访问
 config = context.config
@@ -13,7 +12,7 @@ fileConfig(config.config_file_name)
 
 # 在此添加你的模型的 MetaData 对象 以支持 自动生成（autogenerate） 迁移脚本
 from core.settings import settings  # noqa
-from models.user import SQLModel, User
+from models.user import SQLModel
 
 target_metadata = SQLModel.metadata
 

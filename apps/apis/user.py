@@ -4,11 +4,11 @@ from typing import Annotated, Any
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
 
-from app.deps import CurrentUser, SessionDep
+from apps.deps import CurrentUser, SessionDep
+from apps.models import UserRegister
+from apps.models.user import Token, User, UserPublic
 from core.security import create_access_token
 from crud import user as user_crud
-from models import UserRegister
-from models.user import Token, User, UserPublic
 
 router = APIRouter(tags=["user"])
 
