@@ -16,7 +16,7 @@ router = APIRouter(tags=["user"])
 @router.post("/signup", response_model=UserPublic)
 def register_user(session: SessionDep, user_in: UserRegister) -> Any:
     """
-    注册用户
+    register user
     """
     user_obj = user_crud.get_user_by_account(
         session=session, user_account=user_in.user_account

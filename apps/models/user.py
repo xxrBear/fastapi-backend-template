@@ -32,6 +32,8 @@ class UserBase(SQLModel):
 class User(UserBase, table=True):
     """用户表"""
 
+    __tablename__ = "users"
+
     hashed_password: str = Field(min_length=32, description="加密后的密码")
 
 

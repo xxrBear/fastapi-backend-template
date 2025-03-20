@@ -12,7 +12,7 @@ fileConfig(config.config_file_name)
 
 # 在此添加你的模型的 MetaData 对象 以支持 自动生成（autogenerate） 迁移脚本
 from core.settings import settings  # noqa
-from models.user import SQLModel
+from apps.models.user import SQLModel
 
 target_metadata = SQLModel.metadata
 
