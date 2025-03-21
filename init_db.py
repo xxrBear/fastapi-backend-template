@@ -1,11 +1,24 @@
-from sqlmodel import SQLModel, create_engine
+from sqlmodel import SQLModel, Session, create_engine, select
 
-from apps.models import User
+from apps.models import User, UserRegister
+from core.security import get_password_hash
+from core.settings import settings
+from crud import user as crud_user
 
-# 使用 SQLAlchemy 的 SQLite URL 格式
-DATABASE_URL = "postgresql://fast-admin:123456@localhost:5432/backend_tem"
+engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI), echo=True)
 
-engine = create_engine(DATABASE_URL, echo=True)
+
+def init_db(session: Session) -> None:
+    user = session.exec(
+        select(User).where(User.user_account == settings.FIRST_SUPERUSER)
+    ).first()
+    if not user:
+        user_in = UserRegister(
+            user_account=settings.FIRST_SUPERUSER,
+            password=get_password_hash(settings.FIRST_SUPERUSER_PASSWORD),
+            is_superuser=True,
+        )
+        user = crud_user.create_user(session=session, user_in=user_in)
 
 
 # 初始化数据库表
@@ -15,4 +28,5 @@ def init_db_and_superuser():
 
 
 if __name__ == "__main__":
-    init_db_and_superuser()
+    with Session(engine) as session:
+        init_db(session)
