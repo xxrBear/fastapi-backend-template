@@ -8,7 +8,7 @@ from crud import user as crud_user
 engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI), echo=True)
 
 
-def init_db(session: Session) -> None:
+def init_superuser(session: Session) -> None:
     user = session.exec(
         select(User).where(User.user_account == str(settings.FIRST_SUPERUSER))
     ).first()
@@ -23,4 +23,4 @@ def init_db(session: Session) -> None:
 
 if __name__ == "__main__":
     with Session(engine) as session:
-        init_db(session)
+        init_superuser(session)
