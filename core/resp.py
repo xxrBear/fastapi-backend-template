@@ -9,7 +9,7 @@ def render_json(
     description: Optional[str] = None,
     data: Optional[Any] = None,
 ) -> JSONResponse:
-    """统一返回 JSON 格式的 API 响应。
+    """统一返回 JSON 格式的 API 响应
 
     :param code: 业务状态码，默认 200
     :param message: 返回的消息，默认 "ok"
@@ -24,4 +24,4 @@ def render_json(
         "data": data,
     }
 
-    return JSONResponse(content=response_content, status_code=code)
+    return JSONResponse(content=response_content)
