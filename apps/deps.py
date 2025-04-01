@@ -11,9 +11,9 @@ from jwt.exceptions import InvalidTokenError
 from pydantic import ValidationError
 from sqlmodel import Session
 
+from apps.core import security, settings
+from apps.core.settings import Settings
 from apps.models.user import TokenPayload, User
-from core import security, settings
-from core.settings import Settings
 from init_superuser import engine
 
 # oauth2 验证依赖

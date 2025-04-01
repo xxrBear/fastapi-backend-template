@@ -1,9 +1,9 @@
 from sqlmodel import Session, create_engine, select
 
+from apps.core.security import get_password_hash
+from apps.core.settings import settings
+from apps.crud import user as crud_user
 from apps.models import User, UserRegister
-from core.security import get_password_hash
-from core.settings import settings
-from crud import user as crud_user
 
 engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI), echo=True)
 

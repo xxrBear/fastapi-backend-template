@@ -1,7 +1,7 @@
 from sqlmodel import Session, select
 
+from apps.core.security import get_password_hash, verify_password
 from apps.models import User, UserRegister
-from core.security import get_password_hash, verify_password
 
 
 def authenticate(*, session: Session, user_account: str, password: str) -> User | None:
