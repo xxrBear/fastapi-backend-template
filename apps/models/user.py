@@ -26,7 +26,7 @@ class UserBase(SQLModel):
         sa_column_kwargs={"onupdate": datetime.now},
         description="更新时间",
     )
-    is_delete: bool = Field(default=False, description="是否删除", nullable=True)
+    is_active: bool = Field(default=False, description="是否删除", nullable=True)
 
 
 class User(UserBase, table=True):
@@ -35,6 +35,7 @@ class User(UserBase, table=True):
     __tablename__ = "users"
 
     hashed_password: str = Field(min_length=32, description="加密后的密码")
+    is_superuser: bool = Field(default=False, description="是否超级管理员")
 
 
 class UserPublic(UserBase):

@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     POSTGRES_DB: str = ""
 
     model_config = ConfigDict(
-        env_file=".env"
+        env_file="../.env"
     )  # 使用 model_config 替代 class ConfigDict
 
     @computed_field  # type: ignore[prop-decorator]
