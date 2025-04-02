@@ -1,4 +1,4 @@
-from sqlmodel import Session, create_engine, select
+from sqlmodel import Session, SQLModel, create_engine, select
 
 from apps.core.security import get_password_hash
 from apps.core.settings import settings
@@ -22,5 +22,6 @@ def init_superuser(session: Session) -> None:
 
 
 if __name__ == "__main__":
-    with Session(engine) as session:
-        init_superuser(session)
+    SQLModel.metadata.create_all(engine)
+    # with Session(engine) as session:
+    # init_superuser(session)

@@ -1,8 +1,8 @@
 from fastapi.testclient import TestClient
 from sqlmodel import Session
 
-from crud import user as user_crud
-from models import UserRegister
+from apps.crud import user as user_crud
+from apps.models import UserRegister
 
 
 def test_create_user(client: TestClient, db: Session) -> None:

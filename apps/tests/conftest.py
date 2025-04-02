@@ -4,8 +4,8 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlmodel import Session, SQLModel, create_engine, delete
 
+from apps.models.user import User
 from main import app
-from models import User
 
 TEST_DATABASE_URL = "postgresql://fast-admin:123456@localhost:5432/test"
 
@@ -33,5 +33,5 @@ def client() -> Generator[TestClient, None, None]:
         yield c
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     init_db_and_superuser()
