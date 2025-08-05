@@ -1,22 +1,18 @@
-"""返回状态码"""
+# -------------------------------------------------------------------------
+# 异常状态码
+# -------------------------------------------------------------------------
 
-# 用户未登录
-UNAUTHORIZED = 40100
 
-# 请求参数错误
-INVALID_PARAMETERS = 40000
+ERR_UNAUTHORIZED = 40100  # 未登录
 
-# 无权限
-PERMISSION_DENIED = 40101
+ERR_INVALID_PARAMS = 40000  # 请求参数错误
 
-# 请求数据不存在
-RESOURCE_NOT_FOUND = 40400
+ERR_PERMISSION_DENIED = 40101  # 无权限
 
-# 禁止访问
-FORBIDDEN_ERROR = 40300
+ERR_RESOURCE_NOT_FOUND = 40400  # 资源不存在
 
-# 系统内部异常
-INTERNAL_ERROR = 50000
+ERR_FORBIDDEN = 40300  # 禁止访问
 
-# 操作失败
-OPERATION_FAILED = 50001
+ERR_SERVER_ERROR = 50000  # 系统内部错误
+
+ERR_OPERATION_FAILED = 50001  # 操作失败
