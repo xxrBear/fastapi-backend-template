@@ -1,10 +1,19 @@
+import os
 from logging.config import fileConfig
 
 from alembic import context
+from dotenv import load_dotenv
 from sqlalchemy import engine_from_config, pool
+
+from apps.models.user import SQLModel, User
+
+base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
+load_dotenv(os.path.join(base_dir, '.env'), encoding="utf-8")
+
 
 # 这是 Alembic 配置（Config）对象，它提供对当前使用的 .ini 配置文件中参数的访问
 config = context.config
+
 
 # 解释 Python 日志配置文件
 # 这行代码的作用基本上是设置日志记录器 loggers
@@ -12,7 +21,6 @@ fileConfig(config.config_file_name)
 
 # 在此添加你的模型的 MetaData 对象 以支持 自动生成（autogenerate） 迁移脚本
 from apps.core.settings import settings  # noqa
-from apps.models.user import SQLModel, User
 
 target_metadata = SQLModel.metadata
 
@@ -22,6 +30,7 @@ target_metadata = SQLModel.metadata
 
 
 def get_url():
+    # print(f'迁移数据库 url {settings.SQLALCHEMY_DATABASE_URI}')
     return str(settings.SQLALCHEMY_DATABASE_URI)
 
 
