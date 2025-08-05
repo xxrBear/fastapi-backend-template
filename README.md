@@ -7,16 +7,30 @@
 
 ## 简介
 
-基于 FastAPI + PostgreSQL + SQLModel 等，搭建的服务端应用，用于快速开发。
+基于 FastAPI + PostgreSQL + SQLModel 等，搭建的服务端应用，用于快速开发
 
-## 项目依赖
+## 快速开始
 
-- uv
-- pydantic
-- sqlmodel
-
-## 快速启动
-
+- 设置虚拟环境
 ```shell
 uv sync
+```
+
+- 根目录下创建并设置`.env`文件
+```
+SECRET_KEY=
+POSTGRES_SERVER=
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_DB=
+```
+
+- 迁移数据表
+```shell
+alembic upgrade head
+```
+
+- 创建管理员用户
+```shell
+python -m scripts.init_superuser
 ```
