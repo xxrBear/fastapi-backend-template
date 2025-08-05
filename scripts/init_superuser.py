@@ -1,8 +1,15 @@
+import os
+
+from dotenv import load_dotenv
+
+base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+load_dotenv(os.path.join(base_dir, '.env'), encoding="utf-8")
+
 from sqlmodel import Session, SQLModel, create_engine, select
 
-from apps.core import settings
 from apps.core.security import get_password_hash
-from apps.crud.user import create_user as crud_user
+from apps.core.settings import settings
+from apps.crud import user as crud_user
 from apps.models.user import User, UserRegister
 
 engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI), echo=True)
