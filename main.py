@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 
-from apps.main import api_router
+from apps.routers import api_router
 
 app = FastAPI()
 app.include_router(api_router)

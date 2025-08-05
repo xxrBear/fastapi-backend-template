@@ -12,7 +12,7 @@ from apps.models.user import Token, User
 router = APIRouter(tags=["login"])
 
 
-@router.post("/login/test-token", response_model=User)
+@router.post("/login/test-token", response_model=User, include_in_schema=False)
 def test_token(current_user: CurrentUser) -> Any:
     """
     Test access token
@@ -20,7 +20,7 @@ def test_token(current_user: CurrentUser) -> Any:
     return current_user
 
 
-@router.post("/login/access-token")
+@router.post("/login/access-token", include_in_schema=False)
 def login_access_token(
     session: SessionDep, form_data: Annotated[OAuth2PasswordRequestForm, Depends()]
 ) -> Token:
