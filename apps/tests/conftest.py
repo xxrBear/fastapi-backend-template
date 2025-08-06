@@ -7,7 +7,7 @@ from sqlmodel import Session, SQLModel, create_engine, delete
 from apps.models.user import User
 from main import app
 
-TEST_DATABASE_URL = "postgresql://fast-admin:123456@localhost:5432/test"
+TEST_DATABASE_URL = "postgresql://postgres:12345678@localhost:5432/mydb"
 
 engine = create_engine(TEST_DATABASE_URL)
 

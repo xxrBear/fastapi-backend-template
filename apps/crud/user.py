@@ -21,6 +21,13 @@ def get_user_by_account(*, session: Session, user_account: str):
     return user_obj
 
 
+def get_user_by_id(*, session: Session, user_id: str):
+    """通过 user_id 查找用户"""
+    statement = select(User).where(User.id == user_id)
+    user_obj = session.exec(statement).first()
+    return user_obj
+
+
 def create_user(*, session: Session, user_in: UserRegister) -> User:
     """创建用户"""
     db_obj = User.model_validate(
