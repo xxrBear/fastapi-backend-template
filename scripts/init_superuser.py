@@ -12,7 +12,7 @@ from apps.core.settings import settings
 from apps.crud import user as crud_user
 from apps.models.user import User, UserRegister
 
-engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI), echo=True)
+engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI))
 
 
 def init_superuser(session: Session) -> None:
